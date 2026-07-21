@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #09090B;
+  color: #F4F4F6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #F4F4F6;
+  color: #09090B;
+}
+
+/* Thin, elegant scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2A31;
+  border-radius: 999px;
+  border: 3px solid  #09090B;
+}
+
+@layer components {
+  /* Frosted glass surface used across navbar, cards and the contact panel */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+   border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-dark {
+    background: rgba(29, 29, 31, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Subtle film-grain overlay for a cinematic surface */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .eyebrow {
+    @apply font-mono text-[11px] tracking-[0.2em] uppercase text-smoke;
+  }
+
+  ..btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-ink text-paper px-8 py-3.5 text-[15px] font-medium tracking-tight transition-all duration-300 hover:scale-[1.03] hover:shadow-glow active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-full glass text-ink px-8 py-3.5 text-[15px] font-medium tracking-tight transition-all duration-300 hover:scale-[1.03] hover:bg-white/10 active:scale-[0.98];
+}
+  .section-pad {
+    @apply px-6 md:px-10 lg:px-16 xl:px-24;
+  }
+
+  /* Hides the scrollbar on touch-swipe strips (mobile Work section)
+     while keeping native scroll/swipe behavior intact. */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -173,7 +173,7 @@ export default function Hero() {
             rotateY: springTiltY,
             transformPerspective: 1200,
           }}
-          className="group relative aspect-video w-full overflow-hidden rounded-4xl border border-white/10 bg-titanium shadow-card shadow-glow"
+          className="group relative aspect-video w-full overflow-hidden rounded-4xl border border-white/10 bg-titanium shadow-card"
         >
           {/*
             ============================================================
